@@ -48,7 +48,7 @@ char	*get_line(int fd, char *str)
 	if (!line)
 		return (free(str), NULL);
 	chars_read = 1;
-	while (!ft_new_line(str, '\n') && chars_read > 0)
+	while (!ft_go_to_new_line(str, '\n') && chars_read > 0)
 	{
 		chars_read = read(fd, line, BUFFER_SIZE);
 		if (chars_read == 0)
