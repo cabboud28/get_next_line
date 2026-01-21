@@ -22,7 +22,7 @@
 # endif
 
 int		ft_strlen(char *str);
-char	*ft_new_line(char *str, int c);
+char	*ft_go_to_new_line(char *str, int c);
 char	*ft_strjoin(char *str1, char *str2);
 char	*ft_substr(char *str);
 char	*clean_up(char *str);
