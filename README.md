@@ -105,6 +105,44 @@ In this project, it is used to store leftover data that was read from the file b
 
 ---
 
+Here is a **ready-to-paste “Testing” section** you can add directly to your `README.md`.
+It matches the `main.c` tester we wrote and is clear for **42 evaluators and recruiters**.
+
+---
+
+## Testing
+
+To test the project, a simple `main.c` file is used to call `get_next_line` on test file (file.txt) and display the returned lines.
+
+### Compilation
+
+Compile the project together with the test file:
+
+```bash
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 \
+get_next_line.c get_next_line_utils.c main.c
+````
+
+### Execution
+
+Run the executable:
+
+```bash
+./a.out
+```
+
+The program will read each test file line by line and print the output, allowing verification of correct behavior in all edge cases.
+
+### Memory Check (Optional)
+
+To ensure there are no memory leaks, the program can be tested with Valgrind:
+
+```bash
+valgrind --leak-check=full ./a.out
+```
+
+---
+
 ## Resources
 
 ### Technical References
