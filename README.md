@@ -140,6 +140,13 @@ To ensure there are no memory leaks, the program can be tested with Valgrind:
 ```bash
 valgrind --leak-check=full ./a.out
 ```
+---
+
+## File descriptor
+
+A file descriptor is simply a number used by the system to know where to read from or write to.
+For example, 0 refers to keyboard input, 1 to screen output, 2 to error output, and any value greater than 2 usually refers to an opened file.
+In this project, the file descriptor tells get_next_line which file or input stream it should read from.
 
 ---
 
