@@ -41,26 +41,26 @@ char	*clean_up(char *str)
 // Reads from the file descriptor until a newline is found or end of file is reached
 char	*get_line(int fd, char *str)
 {
-	char	*line;
-	int		chars_read;
+	char	*row;
+	int		c_read;
 
-	line = malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!line)
+	row = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!row)
 		return (free(str), NULL);
-	chars_read = 1;
-	while (!ft_go_to_new_line(str, '\n') && chars_read > 0)
+	c_read = 1;
+	while (!ft_go_to_new_line(str, '\n') && c_read > 0)
 	{
-		chars_read = read(fd, line, BUFFER_SIZE);
-		if (chars_read == 0)
+		c_read = read(fd, row, BUFFER_SIZE);
+		if (c_read == 0)
 			break;
-		if (chars_read < 0)
-			return (free(line), free(str), NULL);
-		line[chars_read] = '\0';
-		str = ft_strjoin(str, line);
+		if (c_read < 0)
+			return (free(row), free(str), NULL);
+		row[c_read] = '\0';
+		str = ft_strjoin(str, row);
 		if (!str)
-			return (free(line), NULL);
+			return (free(row), NULL);
 	}
-	free(line);
+	free(row);
 	return (str);
 }
 
