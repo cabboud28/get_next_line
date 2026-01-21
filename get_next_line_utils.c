@@ -25,7 +25,8 @@ int	ft_strlen(char	*str)
 	return (len);
 }
 // Returns a pointer to the first occurrence of character c in string str
-char	*ft_new_line(char *str, int c)
+// when it finds \n for example, it goes to a new line
+char	*ft_go_to_new_line(char *str, int c)
 {
 	if (!str)
 		return (NULL);
@@ -41,39 +42,39 @@ char	*ft_new_line(char *str, int c)
 }
 
 // Joins two strings into a new string
-char	*ft_strjoin(char *str1, char *str2)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*new;
+	char	*new_str;
 	int		i;
 	int		j;
 
 	i = 0;
 	j = 0;
-	if (!str2)
-		return (free(str1), NULL);
-	new = (char *)malloc(ft_strlen(str1) + ft_strlen(str2) + 1);
-	if (!new)
+	if (!s2)
+		return (free(s1), NULL);
+	new_str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!new_str)
 		return (NULL);
-	if (str1)
+	if (s1)
 	{
-		while (str1[i])
+		while (s1[i])
 		{
-			new[i] = str1[i];
+			new_str[i] = s1[i];
 			i++;
 		}
 	}
-	while (str2[j])
-		new[i++] = str2[j++];
-	new[i] = '\0';
-	free(str1);
-	return (new);
+	while (s2[j])
+		new_str[i++] = s2[j++];
+	new_str[i] = '\0';
+	free(s1);
+	return (new_str);
 }
 
 // Extracts a substring from the beginning of str up to and including the first newline
 char	*ft_substr(char	*str)
 {
 	int		i;
-	char	*new_str;
+	char	*sub_str;
 
 	if (!str)
 		return (NULL);
@@ -82,17 +83,17 @@ char	*ft_substr(char	*str)
 		i++;
 	if (str[i] == '\n')
 		i++;
-	new_str = malloc(i * sizeof(char) + 1);
-	if (!new_str)
+	sub_str = malloc(i * sizeof(char) + 1);
+	if (!sub_str)
 		return (NULL);
 	i = 0;
 	while (str[i] && str[i] != '\n')
 	{
-		new_str[i] = str[i];
+		sub_str[i] = str[i];
 		i++;
 	}
 	if (str[i] == '\n')
-		new_str[i++] = '\n';
-	new_str[i] = '\0';
-	return (new_str);
+		sub_str[i++] = '\n';
+	sub_str[i] = '\0';
+	return (sub_str);
 }
